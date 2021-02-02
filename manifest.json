@@ -1,0 +1,22 @@
+{
+  "description": "Mude o plano de fundo do Telegram | Change the Telegram background",
+  "manifest_version": 2,
+  "name": "Telegram Background",
+  "author": "Johnendz",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["*://web.telegram.org/*"],
+      "css":["style.css"],
+	  "js": ["script.js"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "icons": {
+	"32": "icons/32.png",
+    "64": "icons/64.png",
+    "128": "icons/128.png"
+  }
+}

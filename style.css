@@ -1,3 +1,7 @@
 i.icon.icon-new-background {
-    background: url(https://img.icons8.com/material-outlined/24/000000/settings.png) 50% no-repeat;
+    background: url(https://img.icons8.com/material-outlined/24/ffffff/settings.png) 50% no-repeat;
+	width: 21px;
+	height: 21px;
+	display: inline-block;
+	vertical-align: top;
 }

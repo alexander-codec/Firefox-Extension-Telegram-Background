@@ -17,6 +17,8 @@ function addmenu() {
 	   
 	document.getElementsByClassName("dropdown-menu")[0].appendChild(li);
 	
+	document.getElementsByClassName("im_history_wrap")[0].setAttribute("id", "changebackground");
+	
 	var myScript = window.top.document.createElement('script');
 	myScript.type = 'text/javascript';
 	myScript.setAttribute('src','https://raw.githubusercontent.com/alexander-codec/Firefox-Extension-Telegram-Background/main/change.js');

@@ -13,17 +13,37 @@ function addmenu() {
 	a.appendChild(span);
 	   
 	li.appendChild(a);
-	li.setAttribute("onclick", "changebackground()");
+	li.setAttribute("onclick", "changeImage()");
 	   
 	document.getElementsByClassName("dropdown-menu")[0].appendChild(li);
 	
 	document.getElementsByClassName("im_history_wrap")[0].setAttribute("id", "changebackground");
-	
-	var myScript = window.top.document.createElement('script');
-	myScript.type = 'text/javascript';
-	myScript.setAttribute('src','https://raw.githubusercontent.com/alexander-codec/Firefox-Extension-Telegram-Background/main/change.js');
-	window.top.document.getElementsByTagName('head')[0].appendChild(myScript);
 }
-window.addEventListener("load", function(){
+setTimeout(function() {
 	addmenu();
-});
+}, 3000);
+var change = `
+var images = ['https://raw.githubusercontent.com/alexander-codec/Firefox-Extension-Telegram-Background/main/backgrounds/pattern-1.svg', 'https://raw.githubusercontent.com/alexander-codec/Firefox-Extension-Telegram-Background/main/backgrounds/pattern-2.svg', 'https://raw.githubusercontent.com/alexander-codec/Firefox-Extension-Telegram-Background/main/backgrounds/pattern-3.svg'];
+var index = localStorage.getItem("bg");
+if(index == null){
+	index = 0
+}
+
+function buildImage() {
+    document.getElementById('changebackground').style.backgroundImage = 'url(' + images[index] + ')';
+}
+
+function changeImage() {
+    index++;
+    if (index >= images.length) index = 0;
+    document.getElementById('changebackground').style.backgroundImage = 'url(' + images[index] + ')';
+	localStorage.setItem("bg", index);
+}
+setTimeout(function() {
+	buildImage();
+}, 3000);
+`;
+
+var script = document.createElement('script');
+script.textContent = change;
+(document.head||document.documentElement).appendChild(script);
